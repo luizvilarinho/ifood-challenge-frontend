@@ -40,8 +40,7 @@ public class LojaController extends HttpServlet {
 		LojaDAO Loja = new LojaDAO();
 		
 		LojaModel model = new LojaModel();
-		
-		
+				
 		model.setId(1);
 		model.setRaioEntrega(Integer.parseInt(request.getParameter("raioentrega")));
 		model.setStatus(1);

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import oracle.jdbc.pool.OracleDataSource;
+
 
 public class DbManager {
 	
@@ -24,6 +26,7 @@ public class DbManager {
 		try
 		{
 			
+			
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 			} catch (ClassNotFoundException e) {
@@ -31,15 +34,13 @@ public class DbManager {
 				e.printStackTrace();
 			}
 			
+			String usuario = "System";
+			String senha = "vida180100";
 			
-			String stringConnection = "jdbc:oracle://localhost:1521:IFoodChallenge";
-			String usuario = "JavaUser";
-			String senha = "JavaUser123";
+			String connString="jdbc:oracle:thin:@localhost:1521:xe";
+
 			
-			
-			
-			
-			conexao = DriverManager.getConnection(stringConnection,usuario,senha);
+			conexao = DriverManager.getConnection(connString,usuario,senha);
 			if(conexao == null)
 			{
 				System.out.println("conexao nula");

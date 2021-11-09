@@ -36,7 +36,6 @@ public class LojaDAO {
 		try
 		{
 			
-			
 			String query = "INSERT INTO tbLojas (Id ,Nome, RaioEntrega, Status, AtendeVegano, EnderecoId, DataCadastro, OrganizacaoId) "
 					+ "VALUES (tbLojas.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
 			
@@ -81,7 +80,6 @@ public class LojaDAO {
 		try
 		{
 			
-			
 			String query = "update tbLojas set nome = ?, raioentrega = ?, status = ?, atendevegano = ? where id  = ?";
 			
 			
@@ -125,7 +123,7 @@ public class LojaDAO {
 		try
 		{
 			
-			String query = "SELECT * FROM tbLojas WHERE lojaId = " + lojaId;
+			String query = "SELECT * FROM tbLojas WHERE Id = " + lojaId;
 			
 			pstmt = conexao.prepareStatement(query);
 			
