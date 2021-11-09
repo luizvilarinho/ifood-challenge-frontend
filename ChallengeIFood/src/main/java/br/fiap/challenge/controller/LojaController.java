@@ -2,6 +2,7 @@ package br.fiap.challenge.controller;
 
 import java.io.IOException;
 
+import br.fiap.challenge.DAO.EnderecoDAO;
 import br.fiap.challenge.DAO.LojaDAO;
 import br.fiap.challenge.model.LojaModel;
 import jakarta.servlet.ServletException;
@@ -17,12 +18,14 @@ import jakarta.servlet.http.HttpServletResponse;
 public class LojaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private LojaDAO lojaDAO;
+	private EnderecoDAO enderecoDAO;
 
     /**
      * Default constructor. 
      */
     public LojaController() {
     	lojaDAO = new LojaDAO();
+    	enderecoDAO = new EnderecoDAO();
     }
 
 	/**
@@ -58,6 +61,8 @@ public class LojaController extends HttpServlet {
 		model.setNome(request.getParameter("nome"));
 		
 		lojaDAO.AlterarLoja(model);
+		
+		
 		
 		response.sendRedirect("buscar_lojas.jsp");
 		
