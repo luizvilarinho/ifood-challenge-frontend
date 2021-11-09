@@ -37,7 +37,7 @@ public class LojaDAO {
 		{
 			
 			String query = "INSERT INTO tbLojas (Id ,Nome, RaioEntrega, Status, AtendeVegano, EnderecoId, DataCadastro, OrganizacaoId) "
-					+ "VALUES (tbLojas.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
+					+ "VALUES (TESTE_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
 			
 			pstmt = conexao.prepareStatement(query);
 			

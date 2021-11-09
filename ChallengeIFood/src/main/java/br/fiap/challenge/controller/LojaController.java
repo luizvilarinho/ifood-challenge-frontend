@@ -1,8 +1,14 @@
 package br.fiap.challenge.controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
 
+import br.fiap.challenge.DAO.EnderecoDAO;
 import br.fiap.challenge.DAO.LojaDAO;
+import br.fiap.challenge.model.EnderecoModel;
 import br.fiap.challenge.model.LojaModel;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -16,12 +22,14 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/LojaController")
 public class LojaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private LojaDAO lojaDAO;
+	private EnderecoDAO enderecoDAO;
     /**
      * Default constructor. 
      */
     public LojaController() {
-        // TODO Auto-generated constructor stub
+        lojaDAO = new LojaDAO();
+        enderecoDAO = new EnderecoDAO();
     }
 
 	/**
@@ -37,27 +45,46 @@ public class LojaController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		LojaDAO Loja = new LojaDAO();
 		
-		LojaModel model = new LojaModel();
-				
-		model.setId(1);
-		model.setRaioEntrega(Integer.parseInt(request.getParameter("raioentrega")));
-		model.setStatus(1);
-		model.setOrganizacaoId(1);
+		String action = request.getParameter("action");
 		
-		if(request.getParameter("pratovegano") == "sim")
+		if(action.equalsIgnoreCase("cadastroLoja"))
 		{
-			model.setAtendeVegano(1);
+			
+			/*
+			 * LojaModel model = new LojaModel();
+			 * 
+			 * model.setId(1);
+			 * model.setRaioEntrega(Integer.parseInt(request.getParameter("raioentrega")));
+			 * model.setStatus(1); model.setOrganizacaoId(1);
+			 * 
+			 * 
+			 * Date date = new Date();
+			 * 
+			 * model.setDataCadastro(date);
+			 * 
+			 * if(request.getParameter("pratovegano") == "sim") { model.setAtendeVegano(1);
+			 * } else { model.setAtendeVegano(0); }
+			 * 
+			 * model.setNome(request.getParameter("nome"));
+			 * 
+			 * lojaDAO.IncluirLoja(model);
+			 */
+			
+			EnderecoModel e = new EnderecoModel();
+			e.setBairro(request.getParameter("bairro"));
+			e.setCEP(request.getParameter("cep"));
+			e.setCidade(request.getParameter("cidade"));
+			e.setComplemento(request.getParameter("complemento"));
+			e.setLogradouro(request.getParameter("logradouro"));
+			e.setLojaId(1);
+			e.setNumero(request.getParameter("numero"));
+			e.setPais(request.getParameter("pais"));
+			e.setUf(request.getParameter("estados"));
+			
+			enderecoDAO.IncluirEndereco(e);
+			
 		}
-		else
-		{
-			model.setAtendeVegano(0);
-		}
-		
-		model.setNome(request.getParameter("nome"));
-		
-		Loja.AlterarLoja(model);
 		
 		response.sendRedirect("buscar_lojas.jsp");
 		

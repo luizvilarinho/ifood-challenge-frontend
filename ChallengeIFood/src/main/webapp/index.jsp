@@ -28,7 +28,7 @@
                 <h3 id="title" class="text-secondary">Endereço</h3>
             </article>
             <article>
-                <form action="LojaController" method="post">
+                <form action="LojaController?action=cadastroLoja" method="post">
                     <div id="formEndereco" class="row">
                         <div class="mb-3 col-sm-3">
                             <label for="exampleInputEmail1" class="form-label">CEP</label>

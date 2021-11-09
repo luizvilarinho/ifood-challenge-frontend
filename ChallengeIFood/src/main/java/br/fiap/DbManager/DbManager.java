@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import oracle.jdbc.pool.OracleDataSource;
 
 
 public class DbManager {
