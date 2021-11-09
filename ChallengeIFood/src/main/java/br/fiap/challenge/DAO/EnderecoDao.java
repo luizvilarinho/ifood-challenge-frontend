@@ -34,8 +34,8 @@ public class EnderecoDao {
 	{
 		try
 		{
-			String query = "INSERT INTO tbEndereco (Id ,Logradouro, Bairro, Numero, Complemento, Cidade, UF, Pais) "
-					+ "VALUES (SEQ_PESO.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
+			String query = "INSERT INTO tbEndereco (Id ,Logradouro, Bairro, Numero, Complemento, Cidade, UF, Pais, lojaId) "
+					+ "VALUES (tbEndereco.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
 			
 			pstmt = conexao.prepareStatement(query);
 			
@@ -46,6 +46,7 @@ public class EnderecoDao {
 			pstmt.setString(5, endereco.getCidade());
 			pstmt.setString(6, endereco.getUf());
 			pstmt.setString(7, endereco.getPais());
+			pstmt.setInt(8, endereco.getLojaId());
 			
 			pstmt.execute();
 			
@@ -72,13 +73,13 @@ public class EnderecoDao {
 	
 	
 	
-	public List<EnderecoModel> getEndereco()
+	public List<EnderecoModel> getEndereco(int lojaId)
 	{
 		List<EnderecoModel> Enderecos = new ArrayList<>();
 		try
 		{
 			
-			String query = "SELECT * FROM tbEndereco";
+			String query = "SELECT * FROM tbEndereco WHERE lojaId = " + lojaId;
 			
 			pstmt = conexao.prepareStatement(query);
 			
@@ -95,7 +96,7 @@ public class EnderecoDao {
 				e.setLogradouro(result.getString("Logradouro"));
 				e.setCEP(result.getString("CEP"));
 				e.setComplemento(result.getString("Complemento"));
-				
+				e.setLojaId(result.getInt("lojaId"));
 				Enderecos.add(e);
 			}
 			

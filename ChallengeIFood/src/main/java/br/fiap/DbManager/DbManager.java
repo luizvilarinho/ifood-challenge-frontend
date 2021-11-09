@@ -32,9 +32,9 @@ public class DbManager {
 			}
 			
 			
-			String stringConnection = "sua string";
-			String usuario = "seu user";
-			String senha = "sua senha";
+			String stringConnection = "jdbc:oracle:thin:@localhost:1521:ORCL";
+			String usuario = "JavaUser";
+			String senha = "JavaUser123";
 			
 			
 			conexao = DriverManager.getConnection(stringConnection,usuario,senha);

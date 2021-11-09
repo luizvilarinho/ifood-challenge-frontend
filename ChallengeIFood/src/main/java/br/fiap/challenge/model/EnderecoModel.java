@@ -17,6 +17,7 @@ public class EnderecoModel implements Serializable{
 	private String Uf;
 	private String Pais;
 	private String CEP;
+	private int LojaId;
 	
 	public String getLogradouro() {
 		return Logradouro;
@@ -72,6 +73,18 @@ public class EnderecoModel implements Serializable{
 	public void setCEP(String cEP) {
 		CEP = cEP;
 	}
+	/**
+	/**
+	 * @param lojaId the lojaId to set
+	 */
+	public void setLojaId(int lojaId) {
+		LojaId = lojaId;
+	}
+	public int getLojaId() {
+		
+		return this.LojaId;
+	}
+	
 	
 
 }
