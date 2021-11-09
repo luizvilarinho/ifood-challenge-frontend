@@ -28,36 +28,36 @@
                 <h3 id="title" class="text-secondary">Endereço</h3>
             </article>
             <article>
-                <form action="/submitForm.jsp">
+                <form action="LojaController" method="post">
                     <div id="formEndereco" class="row">
                         <div class="mb-3 col-sm-3">
                             <label for="exampleInputEmail1" class="form-label">CEP</label>
-                            <input type="text" class="form-control" id="cep" aria-describedby="cep">
+                            <input type="text" class="form-control" name="cep" aria-describedby="cep" name="cep">
                             <div id="cep" class="form-text">Campo obrigatório</div>
                         </div>
                         <div class="mb-3 col-sm-7">
                             <label for="exampleInputEmail1" class="form-label">Logradouro</label>
-                            <input type="text" class="form-control" id="cep" aria-describedby="logradouro">
+                            <input type="text" class="form-control" name="logradouro" aria-describedby="logradouro">
                             <div id="logradouro" class="form-text">Campo obrigatório</div>
                         </div>
                         <div class="mb-3 col-sm-2">
                             <label for="exampleInputEmail1" class="form-label">Número</label>
-                            <input type="text" class="form-control" id="cep" aria-describedby="numero">
+                            <input type="text" class="form-control" name="numero" aria-describedby="numero" name="numero">
                             <div id="numero" class="form-text">Campo obrigatório</div>
                         </div>
                         <div class="mb-3 col-sm-3">
                             <label for="exampleInputEmail1" class="form-label">Bairro</label>
-                            <input type="text" class="form-control" id="cep" aria-describedby="bairro">
+                            <input type="text" class="form-control" name="bairro" aria-describedby="bairro">
                             <div id="bairro" class="form-text">Campo obrigatório</div>
                         </div>
                         <div class="mb-3 col-sm-7">
                             <label for="exampleInputEmail1" class="form-label">Cidade</label>
-                            <input type="text" class="form-control" id="cep" aria-describedby="cidade">
+                            <input type="text" class="form-control" name="cidade" aria-describedby="cidade">
                             <div id="cidade" class="form-text">Campo obrigatório</div>
                         </div>
                         <div class="mb-3 col-sm-2">
                             <label for="exampleInputEmail1" class="form-label">Estado</label>
-                            <select class="form-select" aria-label="estado" aria-describedby="estado">
+                            <select name="estado" class="form-select" aria-label="estado" aria-describedby="estado">
                                 <option selected>selecione</option>
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
@@ -95,26 +95,30 @@
                     <div id="formAtividade" hidden class="row">
                         <div class="mb-3 col-sm-3">
                             <label for="ramo-atividade" class="form-label">Ramo de atividade</label>
-                            <input type="text" class="form-control" id="ramo-atividade" aria-describedby="atividade">
+                            <input type="text" class="form-control" id="ramo-atividade" aria-describedby="atividade" name="ramo">
                             <div id="atividade" class="form-text">Ramo de atividade</div>
                         </div>
                         <div class="mb-3 col-sm-3">
+                            <label for="ramo-atividade" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="ramo-atividade" aria-describedby="atividade" name="nome">
+                            <div id="atividade" class="form-text">Nome</div>
+                        </div>
+                        <div class="mb-3 col-sm-3">
                             <label for="raio-entrega" class="form-label">Raio de entrega</label>
-                            <input type="number" class="form-control" placeholder="km" id="raio-entrega" aria-describedby="raioEntrega">
+                            <input type="number" class="form-control" placeholder="km" id="raio-entrega" aria-describedby="raioEntrega" name="raioentrega">
                             <div id="raioEntrega" class="form-text">Campo obrigatório</div>
                         </div>
                         <div class="mb-3 col-sm-3">
                             <label for="sim" class="form-label">Possui pratos veganos?</label><br>
-                            <input type="radio" class="form-check-input" name="prato-vegano" id="sim" value="sim" aria-describedby="pratosVeganos">
+                            <input type="radio" class="form-check-input" name="pratovegano" id="sim" value="sim" aria-describedby="pratosVeganos" >
                             <label for="sim" class="form-label me-5">Sim</label>
                             <input type="radio" name="prato-vegano"  class="form-check-input" id="nao" value="nao" aria-describedby="pratosVeganos">
                             <label for="nao" class="form-label">Nao</label>
                             <div id="pratosVeganos" class="form-text">Campo obrigatório</div>
                         </div>
                     </div>
-                </form>
-            </article>
-            <div class="row">
+                    
+                     <div class="row">
                 <article class="text-end">
                     <button id="btn-proximo" type="button" onclick="showHideForm('proximo')" class="btn btn-link mt-5">Próximo</button>
                 </article>
@@ -126,6 +130,10 @@
                 </article>
 
             </div>
+                    
+                </form>
+            </article>
+           
         </section>
 
     </main>

@@ -32,12 +32,23 @@ public class DbManager {
 			}
 			
 			
-			String stringConnection = "jdbc:oracle:thin:@localhost:1521:ORCL";
+			String stringConnection = "jdbc:oracle://localhost:1521:IFoodChallenge";
 			String usuario = "JavaUser";
 			String senha = "JavaUser123";
 			
 			
+			
+			
 			conexao = DriverManager.getConnection(stringConnection,usuario,senha);
+			if(conexao == null)
+			{
+				System.out.println("conexao nula");
+			}
+			else
+			{
+				System.out.println("conexão feita");
+			}
+
 		}
 		catch(SQLException e)
 		{
