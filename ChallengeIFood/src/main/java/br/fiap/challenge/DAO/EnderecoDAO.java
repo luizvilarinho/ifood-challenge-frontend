@@ -48,7 +48,7 @@ public class EnderecoDAO {
 			pstmt.setString(7, endereco.getPais());
 			pstmt.setInt(8, endereco.getLojaId());
 			
-			pstmt.execute();
+			pstmt.executeUpdate();
 			
 		}
 		catch(SQLException e)

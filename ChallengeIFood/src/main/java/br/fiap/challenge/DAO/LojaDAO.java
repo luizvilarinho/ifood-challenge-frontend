@@ -51,7 +51,7 @@ public class LojaDAO {
 			pstmt.setInt(7, loja.getOrganizacaoId());
 
 			
-			pstmt.execute();
+			pstmt.executeUpdate();
 			
 		}
 		catch(SQLException e)
