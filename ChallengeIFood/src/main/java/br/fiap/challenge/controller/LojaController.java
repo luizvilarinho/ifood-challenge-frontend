@@ -16,12 +16,13 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/LojaController")
 public class LojaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private LojaDAO lojaDAO;
 
     /**
      * Default constructor. 
      */
     public LojaController() {
-        // TODO Auto-generated constructor stub
+    	lojaDAO = new LojaDAO();
     }
 
 	/**
@@ -37,7 +38,6 @@ public class LojaController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		LojaDAO Loja = new LojaDAO();
 		
 		LojaModel model = new LojaModel();
 				
@@ -57,7 +57,7 @@ public class LojaController extends HttpServlet {
 		
 		model.setNome(request.getParameter("nome"));
 		
-		Loja.AlterarLoja(model);
+		lojaDAO.AlterarLoja(model);
 		
 		response.sendRedirect("buscar_lojas.jsp");
 		
