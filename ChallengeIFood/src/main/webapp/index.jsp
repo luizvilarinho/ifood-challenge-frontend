@@ -50,6 +50,11 @@
                             <input type="text" class="form-control" name="bairro" aria-describedby="bairro">
                             <div id="bairro" class="form-text">Campo obrigatório</div>
                         </div>
+                         <div class="mb-3 col-sm-7">
+                            <label for="exampleInputEmail1" class="form-label">País</label>
+                            <input type="text" class="form-control" name="cidade" aria-describedby="pais">
+                            <div id="cidade" class="form-text">Campo obrigatório</div>
+                        </div>
                         <div class="mb-3 col-sm-7">
                             <label for="exampleInputEmail1" class="form-label">Cidade</label>
                             <input type="text" class="form-control" name="cidade" aria-describedby="cidade">

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import br.fiap.challenge.DAO.EnderecoDAO;
 import br.fiap.challenge.DAO.LojaDAO;
+import br.fiap.challenge.model.EnderecoModel;
 import br.fiap.challenge.model.LojaModel;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -62,6 +63,21 @@ public class LojaController extends HttpServlet {
 		
 		lojaDAO.AlterarLoja(model);
 		
+		EnderecoModel e = new EnderecoModel();
+		e.setBairro(request.getParameter("bairro"));
+		e.setCEP(request.getParameter("cep"));
+		e.setCidade(request.getParameter("cidade"));
+		e.setComplemento(request.getParameter("complemento"));
+		e.setLogradouro(request.getParameter("logradouro"));
+		e.setLojaId(1);
+		e.setNumero(request.getParameter("numero"));
+		e.setPais(request.getParameter("pais"));
+		e.setUf(request.getParameter("estados"));
+		
+		
+		
+		
+		enderecoDAO.AlterarEndereco(e);
 		
 		
 		response.sendRedirect("buscar_lojas.jsp");
