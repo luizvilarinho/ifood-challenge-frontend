@@ -6,9 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import br.fiap.DbManager.DbManager;
-import br.fiap.challenge.model.EnderecoModel;
 import br.fiap.challenge.model.LojaModel;
 
 public class LojaDAO {

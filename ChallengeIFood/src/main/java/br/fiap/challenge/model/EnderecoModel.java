@@ -9,6 +9,7 @@ public class EnderecoModel implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private int Id;
 	private String Logradouro;
 	private String Bairro;
 	private String Numero;
@@ -83,6 +84,18 @@ public class EnderecoModel implements Serializable{
 	public int getLojaId() {
 		
 		return this.LojaId;
+	}
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return Id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		Id = id;
 	}
 	
 	
