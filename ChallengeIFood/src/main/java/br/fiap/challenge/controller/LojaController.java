@@ -37,7 +37,15 @@ public class LojaController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String action = request.getParameter("action");
+		
+		if(action.equalsIgnoreCase("SelecionarLoja"))
+		{
+			request.setAttribute("loja", lojaDAO.getLoja(1));
+			request.setAttribute("endereco", enderecoDAO.getEndereco(1));
+		}
+		
+		request.getRequestDispatcher("buscar_lojas.jsp").forward(request, response);
 	}
 
 	/**
@@ -51,25 +59,25 @@ public class LojaController extends HttpServlet {
 		if(action.equalsIgnoreCase("cadastroLoja"))
 		{
 			
-			/*
-			 * LojaModel model = new LojaModel();
-			 * 
-			 * model.setId(1);
-			 * model.setRaioEntrega(Integer.parseInt(request.getParameter("raioentrega")));
-			 * model.setStatus(1); model.setOrganizacaoId(1);
-			 * 
-			 * 
-			 * Date date = new Date();
-			 * 
-			 * model.setDataCadastro(date);
-			 * 
-			 * if(request.getParameter("pratovegano") == "sim") { model.setAtendeVegano(1);
-			 * } else { model.setAtendeVegano(0); }
-			 * 
-			 * model.setNome(request.getParameter("nome"));
-			 * 
-			 * lojaDAO.IncluirLoja(model);
-			 */
+
+			  LojaModel model = new LojaModel();
+			  
+			  model.setId(1);
+			  model.setRaioEntrega(Integer.parseInt(request.getParameter("raioentrega")));
+			  model.setStatus(1); model.setOrganizacaoId(1);
+			  
+			  
+			  Date date = new Date();
+			  
+			  model.setDataCadastro(date);
+			  
+			  if(request.getParameter("pratovegano") == "sim") { model.setAtendeVegano(1);
+			  } else { model.setAtendeVegano(0); }
+			  
+			  model.setNome(request.getParameter("nome"));
+			  
+			  lojaDAO.IncluirLoja(model);
+			 
 			
 			EnderecoModel e = new EnderecoModel();
 			e.setBairro(request.getParameter("bairro"));
@@ -83,6 +91,45 @@ public class LojaController extends HttpServlet {
 			e.setUf(request.getParameter("estados"));
 			
 			enderecoDAO.IncluirEndereco(e);
+			
+		}
+		
+		
+		if(action.equalsIgnoreCase("AlterarLoja"))
+		{
+			
+
+			  LojaModel model = new LojaModel();
+			  
+			  model.setId(1);
+			  model.setRaioEntrega(Integer.parseInt(request.getParameter("raioentrega")));
+			  model.setStatus(1); model.setOrganizacaoId(1);
+			  
+			  
+			  Date date = new Date();
+			  
+			  model.setDataCadastro(date);
+			  
+			  if(request.getParameter("pratovegano") == "sim") { model.setAtendeVegano(1);
+			  } else { model.setAtendeVegano(0); }
+			  
+			  model.setNome(request.getParameter("nome"));
+			  
+			  lojaDAO.AlterarLoja(model);
+			 
+			
+			EnderecoModel e = new EnderecoModel();
+			e.setBairro(request.getParameter("bairro"));
+			e.setCEP(request.getParameter("cep"));
+			e.setCidade(request.getParameter("cidade"));
+			e.setComplemento(request.getParameter("complemento"));
+			e.setLogradouro(request.getParameter("logradouro"));
+			e.setLojaId(1);
+			e.setNumero(request.getParameter("numero"));
+			e.setPais(request.getParameter("pais"));
+			e.setUf(request.getParameter("estados"));
+			
+			enderecoDAO.AlterarEndereco(e);
 			
 		}
 		

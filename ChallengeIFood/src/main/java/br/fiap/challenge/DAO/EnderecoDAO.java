@@ -35,18 +35,19 @@ public class EnderecoDAO {
 		try
 		{
 			String query = "INSERT INTO tbLojasEndereco (Id ,Logradouro, Bairro, Numero, Complemento, Cidade, UF, Pais, lojaId) "
-					+ "VALUES (TESTE_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?,?)";
+					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
 			
 			pstmt = conexao.prepareStatement(query);
 			
-			pstmt.setString(1, endereco.getLogradouro());
-			pstmt.setString(2, endereco.getBairro());
-			pstmt.setString(3, endereco.getNumero());
-			pstmt.setString(4, endereco.getComplemento());
-			pstmt.setString(5, endereco.getCidade());
-			pstmt.setString(6, endereco.getUf());
-			pstmt.setString(7, endereco.getPais());
-			pstmt.setInt(8, endereco.getLojaId());
+			pstmt.setInt(1, endereco.getId());
+			pstmt.setString(2, endereco.getLogradouro());
+			pstmt.setString(3, endereco.getBairro());
+			pstmt.setString(4, endereco.getNumero());
+			pstmt.setString(5, endereco.getComplemento());
+			pstmt.setString(6, endereco.getCidade());
+			pstmt.setString(7, endereco.getUf());
+			pstmt.setString(8, endereco.getPais());
+			pstmt.setInt(9, endereco.getLojaId());
 			
 			pstmt.executeUpdate();
 			

@@ -37,18 +37,19 @@ public class LojaDAO {
 		{
 			
 			String query = "INSERT INTO tbLojas (Id ,Nome, RaioEntrega, Status, AtendeVegano, EnderecoId, DataCadastro, OrganizacaoId) "
-					+ "VALUES (TESTE_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
+					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			pstmt = conexao.prepareStatement(query);
 			
-			pstmt.setString(1, loja.getNome());
-			pstmt.setInt(2, loja.getRaioEntrega());
-			pstmt.setInt(3, loja.getStatus());
-			pstmt.setInt(4, loja.getAtendeVegano());
-			pstmt.setInt(5, loja.getEnderecoId());
+			pstmt.setInt(1, loja.getId());
+			pstmt.setString(2, loja.getNome());
+			pstmt.setInt(3, loja.getRaioEntrega());
+			pstmt.setInt(4, loja.getStatus());
+			pstmt.setInt(5, loja.getAtendeVegano());
+			pstmt.setInt(6, loja.getEnderecoId());
 			java.sql.Date sDate = new java.sql.Date(loja.getDataCadastro().getTime());
-			pstmt.setDate(6, sDate);
-			pstmt.setInt(7, loja.getOrganizacaoId());
+			pstmt.setDate(7, sDate);
+			pstmt.setInt(8, loja.getOrganizacaoId());
 
 			
 			pstmt.executeUpdate();
