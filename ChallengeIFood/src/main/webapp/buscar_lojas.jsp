@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -46,10 +48,11 @@
                 <div class="row mb-3">
                     <h4 class="">Resultado</h4>
                 </div>
+                <!--<c:forEach items="${loja}" var="l">
                 <div class="row ">
                     <dl>
                         <dt class="text-secondary">Endereço Completo</dt>
-                        <dd>Rua Soldado Romeu Cocco, 91. Jd. Frizzo, Guarulhos - SP</dd>
+                        <dd><c:out value="${loja.logradouro}"/></dd>
                     </dl>
                     <dl>
                         <dt class="text-secondary">Ramo Atividade</dt>
@@ -64,9 +67,10 @@
                         <dd>Não</dd>
                     </dl>
                 </div>
+                </c:forEach> -->
             </article>
             <article class="col-sm-6">
-                <button type="button" id="btn-atualizar" type="button" class="btn btn-primary mt-5">Atualizar</button>
+                <a href="LojaController?action=SelecionarLoja" id="btn-atualizar" type="button" class="btn btn-primary mt-5">Atualizar</a>
             </article>
         </section>
 

@@ -20,6 +20,7 @@
                 <ul>
                     <li><a href="#" onclick="showHideForm('voltar')">Endereço</a></li>
                     <li><a href="#" onclick="showHideForm('proximo')">Atividade</a></li>
+                    <li><a href="buscar_lojas.jsp">Buscar</a></li>
                 </ul>
             </article>
         </section>

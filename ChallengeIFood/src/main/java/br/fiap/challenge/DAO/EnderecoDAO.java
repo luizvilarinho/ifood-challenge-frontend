@@ -43,7 +43,7 @@ public class EnderecoDAO {
 			pstmt.setString(2, endereco.getLogradouro());
 			pstmt.setString(3, endereco.getBairro());
 			pstmt.setString(4, endereco.getNumero());
-			pstmt.setString(5, endereco.getComplemento());
+			pstmt.setString(5, endereco.getComplemento()); 
 			pstmt.setString(6, endereco.getCidade());
 			pstmt.setString(7, endereco.getUf());
 			pstmt.setString(8, endereco.getPais());
