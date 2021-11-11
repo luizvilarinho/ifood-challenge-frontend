@@ -33,10 +33,10 @@ public class DbManager {
 				e.printStackTrace();
 			}
 			
-			String usuario = "System";
-			String senha = "vida180100";
+			String usuario = "RM88794";
+			String senha = "070889";
 			
-			String connString="jdbc:oracle:thin:@localhost:1521:xe";
+			String connString="jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
 
 			
 			conexao = DriverManager.getConnection(connString,usuario,senha);
